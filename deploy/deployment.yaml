@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: todo
-        image: stormbreaker2023/todo-app:48
+        image: stormbreaker2023/todo-app:65
         ports:
         - containerPort: 8000
