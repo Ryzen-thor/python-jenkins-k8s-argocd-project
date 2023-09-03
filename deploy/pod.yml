@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
   - name: todo-app
-    image: stormbreaker2023/todo:v1
+    image: stormbreaker2023/todo:41
     ports:
     - containerPort: 8000
