@@ -10,7 +10,7 @@ pipeline {
 
 	  stage('Checkout') {
 	     steps {
-	       git branch: 'main', url: 'https://github.com/Ryzen-thor/Jenkins-CICD-project.git'
+	       git branch: 'main', url: 'https://github.com/Ryzen-thor/python-jenkins-k8s-argocd-project.git'
 	      }
 
 	     }
@@ -54,7 +54,7 @@ pipeline {
 		                """
 			
 				withCredentials([gitUsernamePassword(credentialsId: 'gitCred',gitToolName: 'Default')]) {
-                    		sh "git push https://github.com/Ryzen-thor/Jenkins-CICD-project main"
+                    		sh "git push https://github.com/Ryzen-thor/python-jenkins-k8s-argocd-project.git main"
                 }
 				
 				
