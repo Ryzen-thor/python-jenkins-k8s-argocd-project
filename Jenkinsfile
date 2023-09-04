@@ -40,11 +40,19 @@ pipeline {
 		}
 	  }
 
+	  stage('Checkout K8S manifest SCM'){
+		steps{
+			git credentialsId: 'gitCred',
+			url: 'https://github.com/Ryzen-thor/manifest-file-argocd-project.git',
+			branch: 'main'
+		}
+	  }
+
 	  stage('Update k8s manifest and push to repo'){
 		steps{
 			
 				sh """
-    				    cd deploy
+    				    
     				    sed -i "s/todo-app.*/todo-app:${BUILD_NUMBER}/g" deployment.yaml
 		                   
 		      	   	   
@@ -54,7 +62,7 @@ pipeline {
 		                """
 			
 				withCredentials([gitUsernamePassword(credentialsId: 'gitCred',gitToolName: 'Default')]) {
-                    		sh "git push https://github.com/Ryzen-thor/python-jenkins-k8s-argocd-project.git main"
+                    		sh "git push https://github.com/Ryzen-thor/manifest-file-argocd-project.git main"
                 }
 				
 				
